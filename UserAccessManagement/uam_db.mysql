@@ -1,0 +1,41 @@
+create database uam_db;
+
+
+CREATE TABLE users (
+  user_id int NOT NULL primary key AUTO_INCREMENT,
+  f_name varchar(25) NOT NULL,
+  l_name varchar(25) NOT NULL,
+  email varchar(70) NOT NULL unique,
+  username varchar(55) NOT NULL unique,
+  user_type enum('member','manager','admin') NOT NULL DEFAULT 'member',
+  manager varchar(55),
+  registration_date date NOT NULL,
+  password text NOT NULL,
+  FOREIGN KEY (manager) REFERENCES users(username)
+)
+
+
+CREATE TABLE requests (
+  request_id bigint NOT NULL primary key AUTO_INCREMENT,
+  requestor varchar(55) NOT NULL,
+  requirement varchar(50) NOT NULL,
+  requested_date date NOT NULL,
+  status enum('pending','approved','denied') not null DEFAULT 'pending',
+  FOREIGN KEY (requestor) REFERENCES users (username) ON DELETE CASCADE
+)
+
+
+CREATE TABLE resources (
+  resource_id int NOT NULL primary key AUTO_INCREMENT,
+  resource varchar(30) NOT NULL unique,
+  added_date date NOT NULL
+)
+
+
+CREATE TABLE forgot_password (
+  id int NOT NULL primary key AUTO_INCREMENT,
+  user varchar(55) NOT NULL unique,
+  question text NOT NULL,
+  answer text NOT NULL,
+  FOREIGN KEY (user) REFERENCES users (username) ON DELETE CASCADE
+)

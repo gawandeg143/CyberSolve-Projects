@@ -78,7 +78,7 @@
                 </tr>
                 <tr>
                     <th>Security Question </th>
-<!--                     <td> : <input type="text" name="qtn" id="qtn" required> </td> -->
+                    <td> : <input type="text" name="qtn" id="qtn" required> </td>
                     <td>?</td>
                 </tr>
                 <tr>

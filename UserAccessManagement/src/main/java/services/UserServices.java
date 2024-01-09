@@ -275,8 +275,22 @@ public class UserServices {
 	
 	public boolean deallocateManager(String usrnm)
 	{
+		System.out.println(defaultAdmin+"\t admin");
 		try(Connection con = new DBConnect().dBConnect()) {
 			ps = con.prepareStatement("update users set manager=? where username=?");
+			ps.setString(1, defaultAdmin);
+			ps.setString(2, usrnm);
+			return ps.executeUpdate()>0 ? true:false;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+	
+	public boolean updateTeamManager(String usrnm)
+	{
+		try(Connection con = new DBConnect().dBConnect()) {
+			ps = con.prepareStatement("update users set manager=? where username in(select username from (select * from users where manager=?) as sq)");
 			ps.setString(1, defaultAdmin);
 			ps.setString(2, usrnm);
 			return ps.executeUpdate()>0 ? true:false;

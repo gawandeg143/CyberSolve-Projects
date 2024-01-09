@@ -89,6 +89,7 @@ public class RequestServices {
 				ps.setString(1, requirement);
 				ps.setString(2, username);
 				flag = ps.executeUpdate()>0;
+				return true;
 			}
 			else if(flag && "approved".equals(status) && "r_admin".equals(requirement))
 			{
@@ -146,8 +147,9 @@ public class RequestServices {
 					{
 						if("manager".equals(rs.getString("user_type")))
 						{
+							System.out.println("hello");
 							UserServices usrSrvc = new UserServices();
-							usrSrvc.deallocateManager(username);
+							System.out.println(usrSrvc.updateTeamManager(username) );
 						}
 						ps = con.prepareStatement("delete from users where username=?");
 						ps.setString(1, username);

@@ -161,7 +161,7 @@ public class UserResource {
 	{
 		try {
 			
-			if(!pswd.isEmpty()) {
+			if(!pswd.trim().isEmpty()) {
 				Users user = usrSrvc.userLogin(unm.trim(), pswd.trim());
 			
 			if(user!=null)
