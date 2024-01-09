@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+    <style>
+        body{
+            background: url("images/login.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            color: white;
+        }
+        h1{
+            font-size: 45px;
+            text-align: center;
+            letter-spacing: 2px;
+        }
+        .container{
+            width: 25%;
+            margin: 100px auto;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            border: 2px solid rgba(2, 2, 24, 0.858);
+            padding: 20px;
+            background-color: rgba(2, 2, 24, 0.775);
+        }
+        .container h2{
+            text-align: center;
+            font-size: 45px;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+        .container .row{
+            width: 80%;
+            margin: auto;
+            font-size: 20px;
+        }
+        .container .row input{
+            font-size: 19px;
+            padding: 2px 4px;
+            margin: 5px 2px;
+        }
+        .btn{
+            width: 80%;
+            margin: auto;
+            margin-bottom: 8px;
+        }
+        .btn button{
+            padding: 8px 25px;
+            margin: 5px 15px;
+            font-size: 16px;
+            border: 1px solid white;
+            border-radius: 2px;
+            color: white;
+            background-color: transparent;
+        }
+        .btn button:hover{
+            border: 1px solid rgb(20, 177, 177);
+            background-color: rgba(4, 4, 27, 0.899);
+        }
+        div label{
+            font-weight: bold;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        #feature a{
+        	margin: 8px 20px;
+        	font-size: 18px;
+        	text-decoration: none;
+        }
+        #feature a:hover {
+			text-decoration: underline;
+		}
+    </style>
+</head>
+<body>
+    <h1>User Access Management</h1>
+    <div class="container">
+        <h2>Login here</h2>
+        <form action="app/user/authenticate" method="post">
+            <div class="row">
+                <div>
+                    <label for="username">
+                        Username
+                    </label><br>
+                    <input type="text" name="username" required>
+                </div><br>
+                <div>
+                    <label for="password">
+                        Password
+                    </label><br>
+                    <input type="password" name="password" required>
+                </div>
+            </div>
+            <br>
+            <div class="btn">
+                <button type="submit">Submit</button>
+                <button type="reset">Clear</button>
+            </div>
+        </form>
+        <div id="feature">
+        	<label><a style="color: red;" href="ForgotPassword.jsp"> Forgot Password ?</a></label> <label><a style="color: chartreuse;" href="Register.jsp">Sign Up</a></label>
+        </div><br><br>
+    </div>
+</body>
+</html>
